@@ -1,0 +1,14 @@
+<table>
+  <tr>
+    <th>Sr no</th>
+    <th>Name</th>
+    <th>User Name</th>
+    <th>Email</th>
+    <th>phone</th>
+    <th>Website</th>
+  </tr>
+
+  <tr *ngFor="let user of userList; let i = index">
+    <td>{{ i + 1 }}</td>
+  </tr>
+</table>

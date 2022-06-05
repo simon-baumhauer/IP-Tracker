@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { IpTrackerService } from './ip-tracker.service';
+import { ConfigService } from './config.service';
 
-describe('IpTrackerService', () => {
-  let service: IpTrackerService;
+describe('ConfigService', () => {
+  let service: ConfigService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(IpTrackerService);
+    service = TestBed.inject(ConfigService);
   });
 
   it('should be created', () => {

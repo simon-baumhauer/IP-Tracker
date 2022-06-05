@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
-import { Observable } from 'rxjs';
-import { IpTrackerService } from './ip-tracker.service';
+import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { ConfigService } from './config.service';
+import { Location } from './location';
+import { Observable, observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -8,13 +10,16 @@ import { IpTrackerService } from './ip-tracker.service';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  apiKey = 'at_IFhQ1eCdffONVPyiMz7xdlh4kbxg4';
-  locations$: any;
-  constructor(private ipTracker: IpTrackerService) {
-    console.log(this.locations$);
+  readonly ROOT_URL = 'https://jsonplaceholder.typicode.com';
+
+  posts!: Observable<any>;
+
+  constructor(private http: HttpClient) {
+    this.getDate();
+    console.log('test:', this.posts);
   }
 
-  fetchLocation() {
-    this.locations$ = this.ipTracker.fetchLocation();
+  getDate() {
+    this.posts = this.http.get(this.ROOT_URL);
   }
 }
